@@ -1,4 +1,4 @@
-const Event = require('../models/Event');
+const Event = require('../models/Events');
 
 exports.create = async (req, res) => {
   const event = await Event.create(req.body);

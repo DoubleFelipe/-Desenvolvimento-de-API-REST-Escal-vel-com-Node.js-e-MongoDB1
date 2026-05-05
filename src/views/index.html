@@ -1,19 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Eventos</title>
+  <title>Sistema de Eventos</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <h1>Sistema de Gerenciamento de Eventos</h1>
+        <p>Gerencie seus eventos com login seguro e criação rápida.</p>
+      </div>
+      <span id="userStatus" class="badge"></span>
+    </header>
 
-<h1>Criar Evento</h1>
+    <main class="content">
+      <section class="card" id="authSection">
+        <div id="loginForm" class="form-block">
+          <h2>Login</h2>
+          <input id="email" placeholder="Email">
+          <input id="password" type="password" placeholder="Senha">
+          <button onclick="login()">Entrar</button>
+          <button class="secondary" onclick="showRegister()">Cadastrar</button>
+        </div>
 
-<input id="title" placeholder="Título">
-<input id="description" placeholder="Descrição">
-<button onclick="createEvent()">Criar</button>
+        <div id="registerForm" class="form-block" style="display:none">
+          <h2>Cadastro</h2>
+          <input id="registerName" placeholder="Nome">
+          <input id="registerEmail" placeholder="Email">
+          <input id="registerPassword" type="password" placeholder="Senha">
+          <button onclick="registerUser()">Cadastrar</button>
+          <button class="secondary" onclick="showLogin()">Voltar ao login</button>
+        </div>
+      </section>
 
-<h2>Lista</h2>
-<ul id="lista"></ul>
+      <section class="card" id="eventArea">
+        <div class="card-header">
+          <div>
+            <h2>Criar Evento</h2>
+            <p>Crie um evento rápido após fazer login.</p>
+          </div>
+          <button class="small secondary" onclick="logout()">Sair</button>
+        </div>
 
-<script src="script.js"></script>
+        <div class="form-block">
+          <input id="title" placeholder="Título">
+          <input id="description" placeholder="Descrição">
+          <button onclick="createEventRequest()">Criar evento</button>
+        </div>
+
+        <div class="events-list">
+          <h2>Lista de Eventos</h2>
+          <ul id="lista"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js?v=2"></script>
 </body>
 </html>

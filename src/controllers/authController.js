@@ -5,6 +5,10 @@ const jwt = require('jsonwebtoken');
 exports.register = async (req, res) => {
   const { name, email, password } = req.body;
 
+  if (!email || !password) {
+  return res.status(400).json({ erro: "Dados inválidos" });
+}
+
   const hash = await bcrypt.hash(password, 10);
 
   const user = await User.create({
@@ -18,6 +22,10 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
+
+  if (!email || !password) {
+  return res.status(400).json({ erro: "Dados inválidos" });
+}
 
   const user = await User.findOne({ email });
 
